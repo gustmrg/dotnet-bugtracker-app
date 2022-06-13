@@ -4,7 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <UserSecretsId>aspnet-BugTracker-11B8D06E-0417-4031-BDE0-CA5F50094BF3</UserSecretsId>
+        <UserSecretsId>aspnet-BugTracker-DD8E6EC3-A432-44BF-AB7C-57AD6A97E666</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,8 +19,10 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.5" />
-        <PackageReference Include="Npgsql" Version="6.0.4" />
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Areas" />
     </ItemGroup>
 
 </Project>
