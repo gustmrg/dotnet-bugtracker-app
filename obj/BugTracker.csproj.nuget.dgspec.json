@@ -65,14 +65,6 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.5, )"
-            },
-            "Npgsql": {
-              "target": "Package",
-              "version": "[6.0.4, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[6.0.4, )"
             }
           },
           "imports": [
