@@ -2,7 +2,7 @@
   Bug Tracker
 </h3>
 
-<p align="center">Esta aplicação foi construída durante o Bootcamp da <a href="https://www.coderfoundry.com">Coder Foundry</a>.</p>
+<p align="center">Esta aplicação está atualmente em desenvolvimento durante o Bootcamp da <a href="https://www.coderfoundry.com">Coder Foundry</a>.</p>
 
 <p align="center">
 
@@ -40,7 +40,7 @@
 ## :gear: Pré-requisitos
 
 - .NET 6.0
-- Banco de Dados Microsoft SQL Server
+- Banco de Dados PostgreSQL
 
 ## :file_folder: Rodando a Aplicação (web)
 
@@ -71,7 +71,7 @@ $ dotnet run
 Este projeto foi desenvolvido com as seguintes tecnologias:
 
 - .NET 6.0
-- Microsoft SQL Server
+- PostgreSQL v14
 
 ## :blue_book: Bibliotecas
 
