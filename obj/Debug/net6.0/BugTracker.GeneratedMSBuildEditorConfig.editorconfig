@@ -335,6 +335,66 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0QXR0YWNobWVudHMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketComments/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0Q29tbWVudHMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketComments/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0Q29tbWVudHMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketComments/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0Q29tbWVudHMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketComments/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0Q29tbWVudHMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketComments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0Q29tbWVudHMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketHistories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0SGlzdG9yaWVzL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketHistories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0SGlzdG9yaWVzL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketHistories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0SGlzdG9yaWVzL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketHistories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0SGlzdG9yaWVzL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketHistories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0SGlzdG9yaWVzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketPriorities/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0UHJpb3JpdGllcy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketPriorities/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0UHJpb3JpdGllcy9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketPriorities/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0UHJpb3JpdGllcy9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketPriorities/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0UHJpb3JpdGllcy9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketPriorities/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0UHJpb3JpdGllcy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/Tickets/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0cy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -353,6 +413,46 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/Tickets/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0cy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketStatuses/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0U3RhdHVzZXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketStatuses/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0U3RhdHVzZXMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketStatuses/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0U3RhdHVzZXMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketStatuses/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0U3RhdHVzZXMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketStatuses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0U3RhdHVzZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketTypes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0VHlwZXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketTypes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0VHlwZXMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketTypes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0VHlwZXMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketTypes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0VHlwZXMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/TicketTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0VHlwZXMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/gustavo/Dev/Coder Foundry/BugTracker/Views/_ViewImports.cshtml]
