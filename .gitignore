@@ -43,6 +43,12 @@ Generated\ Files/
 # JetBrains IDE directories
 .idea/
 
+# MacOS directories
+.DS_Store
+
+# Migrations folder
+Data/Migrations/
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
