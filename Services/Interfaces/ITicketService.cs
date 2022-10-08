@@ -16,14 +16,13 @@ public interface ITicketService
     public Task<List<Ticket>> GetAllTicketsByPriorityAsync(int companyId, string priorityName);
     public Task<List<Ticket>> GetAllTicketsByStatusAsync(int companyId, string statusName);
     public Task<List<Ticket>> GetAllTicketsByTypeAsync(int companyId, string typeName);
-    public Task<ApplicationUser> GetTicketDeveloperAsync(int ticketId);
+    public Task<ApplicationUser> GetTicketDeveloperAsync(int ticketId, int companyId);
     public Task<List<Ticket>> GetTicketsByRoleAsync(string role, string userId, int companyId);
     public Task<List<Ticket>> GetTicketsByUserIdAsync(string userId, int companyId);
     public Task<List<Ticket>> GetProjectTicketsByRoleAsync(string role, string userId, int projectId, int companyId);
     public Task<List<Ticket>> GetProjectTicketsByStatusAsync(string statusName, int companyId, int projectId);
     public Task<List<Ticket>> GetProjectTicketsByPriorityAsync(string priorityName, int companyId, int projectId);
     public Task<List<Ticket>> GetProjectTicketsByTypeAsync(string typeName, int companyId, int projectId);
-
 
     public Task<int?> LookupTicketPriorityIdAsync(string priorityName);
     public Task<int?> LookupTicketStatusIdAsync(string statusName);
