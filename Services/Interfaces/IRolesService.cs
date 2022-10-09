@@ -1,10 +1,12 @@
 using BugTracker.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace BugTracker.Services.Interfaces;
 
 public interface IRolesService
 {
     public Task<bool> IsUserInRoleAsync(ApplicationUser user, string roleName);
+    public Task<List<IdentityRole>> GetRolesAsync();
     public Task<IEnumerable<string>> GetUserRolesAsync(ApplicationUser user);
     public Task<bool> AddUserToRoleAsync(ApplicationUser user, string roleName);
     public Task<bool> RemoveUserFromRoleAsync(ApplicationUser user, string roleName);
