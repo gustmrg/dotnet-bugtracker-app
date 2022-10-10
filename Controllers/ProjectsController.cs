@@ -6,17 +6,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BugTracker.Data;
+using BugTracker.Extensions;
 using BugTracker.Models;
+using BugTracker.Models.Enums;
+using BugTracker.Services.Interfaces;
+using BugTracker.ViewModels;
 
 namespace BugTracker.Controllers
 {
     public class ProjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IRolesService _rolesService;
+        private readonly ILookupService _lookupService;
 
-        public ProjectsController(ApplicationDbContext context)
+        public ProjectsController(ApplicationDbContext context, IRolesService rolesService, ILookupService lookupService)
         {
             _context = context;
+            _rolesService = rolesService;
+            _lookupService = lookupService;
         }
 
         // GET: Projects
@@ -47,11 +55,15 @@ namespace BugTracker.Controllers
         }
 
         // GET: Projects/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["CompanyId"] = new SelectList(_context.Companies, "Id", "Id");
-            ViewData["ProjectPriorityId"] = new SelectList(_context.ProjectPriorities, "Id", "Id");
-            return View();
+            var companyId = User.Identity.GetCompanyId().Value;
+            AddProjectWithPMViewModel model = new();
+
+            model.PMList = new SelectList(await _rolesService.GetUsersInRoleAsync(Roles.ProjectManager.ToString(), companyId), "Id", "FullName");
+            model.PriorityList = new SelectList(await _lookupService.GetProjectPrioritiesAsync(), "Id", "Name");
+
+            return View(model);
         }
 
         // POST: Projects/Create
@@ -59,7 +71,7 @@ namespace BugTracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CompanyId,Name,Description,StartDate,EndDate,ProjectPriorityId,ImageFileName,ImageFileData,ImageContentType,Archived")] Project project)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,StartDate,EndDate,ProjectPriority,ImageFormFile")] AddProjectWithPMViewModel model)
         {
             if (ModelState.IsValid)
             {
