@@ -86,9 +86,46 @@ public class ProjectService : IProjectService
 
     public async Task ArchiveProjectAsync(Project project)
     {
-        project.Archived = true;
-        _context.Update(project);
-        await _context.SaveChangesAsync();
+        try
+        {
+            project.Archived = true;
+            await UpdateProjectAsync(project);
+
+            // Archive the tickets for the project
+            foreach (Ticket ticket in project.Tickets)
+            {
+                ticket.ArchivedByProject = true;
+                _context.Update(ticket);
+                await _context.SaveChangesAsync();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            throw;
+        }
+    }
+
+    public async Task RestoreProjectAsync(Project project)
+    {
+        try
+        {
+            project.Archived = false;
+            await UpdateProjectAsync(project);
+
+            // Archive the tickets for the project
+            foreach (Ticket ticket in project.Tickets)
+            {
+                ticket.ArchivedByProject = false;
+                _context.Update(ticket);
+                await _context.SaveChangesAsync();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            throw;
+        }
     }
 
     public async Task<List<Project>> GetAllProjectsByCompany(int companyId)

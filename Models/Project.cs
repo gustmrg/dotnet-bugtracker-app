@@ -19,9 +19,11 @@ public class Project
     public string Description { get; set; }
     
     [Display(Name = "Start Date")]
+    [DataType(DataType.Date)]
     public DateTimeOffset StartDate { get; set; }
     
     [Display(Name = "End Date")]
+    [DataType(DataType.Date)]
     public DateTimeOffset EndDate { get; set; }
     
     [Display(Name = "Priority")]
