@@ -128,7 +128,7 @@ public class ProjectService : IProjectService
         }
     }
 
-    public async Task<List<Project>> GetAllProjectsByCompany(int companyId)
+    public async Task<List<Project>> GetAllProjectsByCompanyAsync(int companyId)
     {
         var projects = new List<Project>();
         projects = await _context.Projects.Where(project => project.CompanyId == companyId && project.Archived == false)
@@ -158,7 +158,7 @@ public class ProjectService : IProjectService
 
     public async Task<List<Project>> GetAllProjectsByPriority(int companyId, string priorityName)
     {
-        var projects = await GetAllProjectsByCompany(companyId);
+        var projects = await GetAllProjectsByCompanyAsync(companyId);
         var priorityId = await LookupProjectPriorityId(priorityName);
         return projects.Where(p => p.ProjectPriorityId == priorityId).ToList();
     }
@@ -174,10 +174,41 @@ public class ProjectService : IProjectService
         return teamMembers;
     }
 
-    public async Task<List<Project>> GetArchivedProjectsByCompany(int companyId)
+    public async Task<List<Project>> GetArchivedProjectsByCompanyAsync(int companyId)
     {
-        var projects = await GetAllProjectsByCompany(companyId);
-        return projects.Where(p => p.Archived == true).ToList();
+        try
+        {
+            var projects = await _context.Projects.Where(project => project.CompanyId == companyId && project.Archived == true)
+                .Include(project => project.Members)
+                .Include(project => project.Tickets)
+                .ThenInclude(ticket => ticket.Comments)
+                .Include(project => project.Tickets)
+                .ThenInclude(ticket => ticket.Attachments)
+                .Include(project => project.Tickets)
+                .ThenInclude(ticket => ticket.History)
+                .Include(project => project.Tickets)
+                .ThenInclude(ticket => ticket.Notifications)
+                .Include(project => project.Tickets)
+                .ThenInclude(ticket => ticket.DeveloperUser)
+                .Include(project => project.Tickets)
+                .ThenInclude(ticket => ticket.OwnerUser)
+                .Include(project => project.Tickets)
+                .ThenInclude(ticket => ticket.TicketStatus)
+                .Include(project => project.Tickets)
+                .ThenInclude(ticket => ticket.TicketPriority)
+                .Include(project => project.Tickets)
+                .ThenInclude(ticket => ticket.TicketType)
+                .Include(project => project.ProjectPriority)
+                .ToListAsync();
+            
+            return projects;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
     }
 
     public async Task<List<ApplicationUser>> GetDevelopersOnProjectAsync(int projectId)

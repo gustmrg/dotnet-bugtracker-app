@@ -1,0 +1,109 @@
+@model IEnumerable<BugTracker.Models.Project>
+@using BugTracker.Models.Enums
+
+@{
+    ViewData["Title"] = "My Projects";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (User.IsInRole(nameof(Roles.Admin)) || User.IsInRole(nameof(Roles.ProjectManager)))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@ViewData["Title"]</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.ImageFileName)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.ImageFileData)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Archived)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Company)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.ProjectPriority)
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ImageFileName)
+                        </td>
+                        <td>
+                            @if (item.ImageFileData != null)
+                            {
+                                <img style="width:60px;height:60px;" src="data:image/*;base64,@(Convert.ToBase64String(item.ImageFileData))" alt="" />
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Archived)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Company.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProjectPriority.Name)
+                        </td>
+                        <td>
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><i class="bx bx-info-circle"></i></a>
+                            @if (User.IsInRole(nameof(Roles.Admin)) || User.IsInRole(nameof(Roles.ProjectManager)))
+                            {
+                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><i class="bx bxs-edit-alt"></i></a>
+                                @if (item.Archived)
+                                {
+                                    <a class="btn btn-success" asp-action="Restore" asp-route-id="@item.Id"><i class="bx bxs-archive-out"></i></a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-danger" asp-action="Archive" asp-route-id="@item.Id"><i class="bx bxs-archive-in"></i></a>
+                                }
+                            }
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

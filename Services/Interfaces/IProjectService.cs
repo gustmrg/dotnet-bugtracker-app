@@ -14,13 +14,13 @@ public interface IProjectService
 
     public Task RestoreProjectAsync(Project project);
 
-    public Task<List<Project>> GetAllProjectsByCompany(int companyId);
+    public Task<List<Project>> GetAllProjectsByCompanyAsync(int companyId);
 
     public Task<List<Project>> GetAllProjectsByPriority(int companyId, string priorityName);
 
     public Task<List<ApplicationUser>> GetAllProjectMembersExceptPMAsync(int projectId);
 
-    public Task<List<Project>> GetArchivedProjectsByCompany(int companyId);
+    public Task<List<Project>> GetArchivedProjectsByCompanyAsync(int companyId);
 
     public Task<List<ApplicationUser>> GetDevelopersOnProjectAsync(int projectId);
 

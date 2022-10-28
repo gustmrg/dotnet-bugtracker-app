@@ -289,15 +289,15 @@ public class TicketService : ITicketService
         {
             if (await _rolesService.IsUserInRoleAsync(applicationUser, Roles.Admin.ToString()))
             {
-                tickets = (await _projectService.GetAllProjectsByCompany(companyId)).SelectMany(p => p.Tickets).ToList();
+                tickets = (await _projectService.GetAllProjectsByCompanyAsync(companyId)).SelectMany(p => p.Tickets).ToList();
             }
             else if (await _rolesService.IsUserInRoleAsync(applicationUser, Roles.Developer.ToString()))
             {
-                tickets = (await _projectService.GetAllProjectsByCompany(companyId)).SelectMany(p => p.Tickets).Where(t => t.DeveloperUserId == userId).ToList();
+                tickets = (await _projectService.GetAllProjectsByCompanyAsync(companyId)).SelectMany(p => p.Tickets).Where(t => t.DeveloperUserId == userId).ToList();
             }
             else if (await _rolesService.IsUserInRoleAsync(applicationUser, Roles.Submitter.ToString()))
             {
-                tickets = (await _projectService.GetAllProjectsByCompany(companyId)).SelectMany(p => p.Tickets).Where(t => t.OwnerUserId == userId).ToList();
+                tickets = (await _projectService.GetAllProjectsByCompanyAsync(companyId)).SelectMany(p => p.Tickets).Where(t => t.OwnerUserId == userId).ToList();
             }
             else if (await _rolesService.IsUserInRoleAsync(applicationUser, Roles.ProjectManager.ToString()))
             {

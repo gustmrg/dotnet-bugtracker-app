@@ -1,6 +1,10 @@
 ﻿@page
 @model IndexModel
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+
 @{
+    var user = await UserManager.GetUserAsync(User);
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
@@ -22,6 +26,33 @@
             </div>
             <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
         </form>
+    </div>
+</div>
+
+<div class="card" id="profile-overview">
+    <div class="card-body">
+        <h5 class="card-title">Profile Details</h5>
+        <h3>@user.UserName</h3>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-4 label">Full Name</div>
+            <div class="col-lg-9 col-md-8">@user.FullName</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-4 label">Company</div>
+            <div class="col-lg-9 col-md-8">Company Name</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-4 label">Role</div>
+            <div class="col-lg-9 col-md-8">Assigned Role</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-4 label">Email</div>
+            <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+        </div>
     </div>
 </div>
 
