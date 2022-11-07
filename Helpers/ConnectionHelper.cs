@@ -1,5 +1,4 @@
-﻿using System;
-using Npgsql;
+﻿using Npgsql;
 
 namespace BugTracker.Helpers
 {
@@ -31,4 +30,3 @@ namespace BugTracker.Helpers
         }
     }
 }
-
