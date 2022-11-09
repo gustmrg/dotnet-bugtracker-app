@@ -29,14 +29,13 @@ builder.Services.AddScoped<ICompanyInfoService, CompanyInfoService>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<ITicketService, TicketService>();
 builder.Services.AddScoped<IFileService, FileService>();
-
 builder.Services.AddScoped<ILookupService, LookupService>();
 
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-await DataHelper.ManageDataAsync(app);
+// await DataHelper.ManageDataAsync(app);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
