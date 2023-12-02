@@ -1,22 +1,35 @@
+@using BugTracker.Models.Enums
 @model IEnumerable<BugTracker.Models.Project>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Projects";
+    Layout = "_DashboardLayout";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3><strong>Projects</strong></h3>    
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <a asp-action="Create" class="btn btn-primary">New Project</a>    
+    </div>
+</div>
+<div class="card flex-fill">
+    <div class="card-header">
+        <h5 class="card-title mb-0">All Projects</h5>
+    </div>
+    <table class="table table-hover my-0">
+        <thead>
         <tr>
+            <th></th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StartDate)
@@ -25,34 +38,31 @@
                 @Html.DisplayNameFor(model => model.EndDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageFileName)
+                @Html.DisplayNameFor(model => model.ProjectPriorityId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageFileData)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageContentType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Archived)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Company)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectPriority)
+                @Html.DisplayNameFor(model => model.Archived)?
             </th>
             <th></th>
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
         <tr>
+            <td>
+                @if (item.ImageFileData != null)
+                {
+                    <img style="width:60px;height:60px;" src="data:image/*;base64,@(Convert.ToBase64String(item.ImageFileData))" alt="" />
+                }
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
@@ -61,39 +71,55 @@
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageFileName)
-            </td>
-            <td>
-                @if (item.ImageFileData != null)
+                @if (item.ProjectPriority.Name.Equals(BTProjectPriority.Low.ToString()))
                 {
-                    <img style="width:60px;height:60px;" src="data:image/*;base64,@(Convert.ToBase64String(item.ImageFileData))" alt="" />
+                    <span class="badge bg-secondary">
+                        @Html.DisplayFor(modelItem => item.ProjectPriority.Name)
+                    </span>
                 }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageContentType)
+                else if (item.ProjectPriority.Name.Equals(BTProjectPriority.Medium.ToString()))
+                {
+                    <span class="badge bg-info">
+                        @Html.DisplayFor(modelItem => item.ProjectPriority.Name)
+                    </span>
+                }
+                else if (item.ProjectPriority.Name.Equals(BTProjectPriority.High.ToString()))
+                {
+                    <span class="badge bg-warning">
+                        @Html.DisplayFor(modelItem => item.ProjectPriority.Name)
+                    </span>
+                }
+                else if (item.ProjectPriority.Name.Equals(BTProjectPriority.Urgent.ToString()))
+                {
+                    <span class="badge bg-danger">
+                        @Html.DisplayFor(modelItem => item.ProjectPriority.Name)
+                    </span>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Archived)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Company.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectPriority.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                @if (item.Archived)
-                {
-                    <a asp-action="Restore" asp-route-id="@item.Id">Restore</a>
-                }
-                else
-                {
-                    <a asp-action="Archive" asp-route-id="@item.Id">Archive</a> 
-                }
+                <div class="dropdown">
+                    <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        @if (item.Archived)
+                        {
+                            <a class="dropdown-item" asp-action="Restore" asp-route-id="@item.Id">Restore</a>
+                        }
+                        else
+                        {
+                            <a class="dropdown-item" asp-action="Archive" asp-route-id="@item.Id">Archive</a>
+                        }
+                    </div>
+                </div>
             </td>
         </tr>
-}
-    </tbody>
-</table>
+    }
+        </tbody>
+    </table>
+</div>

@@ -30,15 +30,16 @@ namespace BugTracker.Controllers
             _projectService = projectService;
             _fileService = fileService;
         }
-
-        // GET: Projects
+        
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Projects.Include(p => p.Company).Include(p => p.ProjectPriority);
+            var applicationDbContext = _context.Projects
+                .AsNoTracking()
+                .Include(p => p.Company)
+                .Include(p => p.ProjectPriority);
             return View(await applicationDbContext.ToListAsync());
         }
-
-        // GET: Projects/Details/5
+        
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Projects == null)
@@ -57,8 +58,7 @@ namespace BugTracker.Controllers
 
             return View(project);
         }
-
-        // GET: Projects/Create
+        
         public async Task<IActionResult> Create()
         {
             var companyId = User.Identity.GetCompanyId().Value;
@@ -69,10 +69,7 @@ namespace BugTracker.Controllers
             
             return View(model);
         }
-
-        // POST: Projects/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AddProjectWithPMViewModel model)
@@ -111,8 +108,7 @@ namespace BugTracker.Controllers
             }
             return RedirectToAction("Create");
         }
-
-        // GET: Projects/Edit/5
+        
         public async Task<IActionResult> Edit(int? id)
         {
             var companyId = User.Identity.GetCompanyId().Value;
@@ -125,10 +121,7 @@ namespace BugTracker.Controllers
             
             return View(model);
         }
-
-        // POST: Projects/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(AddProjectWithPMViewModel model)
@@ -166,7 +159,6 @@ namespace BugTracker.Controllers
             return RedirectToAction("Edit");
         }
         
-        // GET: Projects/Archive/5
         public async Task<IActionResult> Archive(int? id)
         {
             if (id == null || _context.Projects == null)
@@ -184,8 +176,7 @@ namespace BugTracker.Controllers
 
             return View(project);
         }
-
-        // POST: Projects/Archive/5
+        
         [HttpPost, ActionName("Archive")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ArchiveConfirmed(int id)
@@ -197,8 +188,7 @@ namespace BugTracker.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
-        // GET: Projects/Restore/5
+        
         public async Task<IActionResult> Restore(int? id)
         {
             if (id == null || _context.Projects == null)
@@ -216,8 +206,7 @@ namespace BugTracker.Controllers
 
             return View(project);
         }
-
-        // POST: Projects/Restore/5
+        
         [HttpPost, ActionName("Restore")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RestoreConfirmed(int id)
