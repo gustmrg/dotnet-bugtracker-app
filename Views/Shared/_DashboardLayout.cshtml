@@ -14,7 +14,7 @@
 
 	<link rel="canonical" href="https://github.com/gustmrg" />
 
-	<title>@ViewData["Title"]</title>
+	<title>BugTracker - @ViewData["Title"]</title>
 
 	<link href="~/css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -34,22 +34,22 @@
 						</a>
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link">
+						<a class="sidebar-link" asp-area="" asp-controller="Projects" asp-action="Index">
 			              <i class="align-middle" data-feather="layers"></i> <span class="align-middle">Projects</span>
 			            </a>
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link">
+						<a class="sidebar-link" asp-area="" asp-controller="Tickets" asp-action="Index">
 			              <i class="align-middle" data-feather="tag"></i> <span class="align-middle">Tickets</span>
 			            </a>
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link" >
+						<a class="sidebar-link" asp-area="" asp-controller="Notifications" asp-action="Index">
 			              <i class="align-middle" data-feather="mail"></i> <span class="align-middle">Notifications</span>
 			            </a>
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link">
+						<a class="sidebar-link" asp-area="" asp-controller="Companies" asp-action="Index">
 							<i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">Companies</span>
 						</a>
 					</li>
@@ -57,7 +57,7 @@
 						Admin
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link">
+						<a class="sidebar-link" asp-area="" asp-controller="UserRoles" asp-action="ManageUserRoles">
 			              <i class="align-middle" data-feather="users"></i> <span class="align-middle">User Roles</span>
 			            </a>
 					</li>
@@ -236,7 +236,7 @@
 					<div class="row text-muted">
 						<div class="col-6 text-start">
 							<p class="mb-0">
-								<a class="text-muted" href="#" target="_blank"><strong>BugTracker</strong></a> &copy; Gustavo Miranda @DateTime.Today.Year
+								<a class="text-muted" href="https://github.com/gustmrg/dotnet-bugtracker-app" target="_blank"><strong>BugTracker</strong></a> &copy; Gustavo Miranda @DateTime.Today.Year
 							</p>
 						</div>
 						<div class="col-6 text-end">
