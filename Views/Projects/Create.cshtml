@@ -40,17 +40,17 @@
                         <span asp-validation-for="Project.EndDate" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="control-label"> Choose a priority </label>
+                        <label class="form-label"> Choose a priority </label>
                         <select asp-for="Project.ProjectPriorityId" class="form-control" asp-items="@Model.PriorityList"></select>
                     </div>
                     <div class="mb-3">
-                        <label class="control-label">Project Image</label>
+                        <label class="form-label">Project Image</label>
                         <input asp-for="Project.ImageFormFile" class="form-control" type="file" accept="*/*.png,.jpg,.jpeg,.gif"
                                onchange="document.getElementById('imageFileData').src = window.URL.createObjectURL(this.files[0])"/>
                         <span asp-validation-for="Project.ImageFormFile" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label> Image Preview </label>
+                        <label class="form-label"> Image Preview </label>
                         @if (Model.Project?.ImageFileData != null)
                         {
                             <img 
