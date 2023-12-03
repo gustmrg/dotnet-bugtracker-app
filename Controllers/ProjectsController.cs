@@ -115,7 +115,6 @@ namespace BugTracker.Controllers
             var model = new AddProjectWithPMViewModel();
 
             model.Project = await _projectService.GetProjectByIdAsync(id.Value, companyId);
-            
             model.PMList = new SelectList(await _rolesService.GetUsersInRoleAsync(Roles.ProjectManager.ToString(), companyId), "Id", "FullName");
             model.PriorityList = new SelectList(await _lookupService.GetProjectPrioritiesAsync(), "Id", "Name");
             
